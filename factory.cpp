@@ -1,11 +1,11 @@
-// a CPP program using factory design pattern to manufacture different type od vahiccles(car, bike,truct)
+// a CPP program using factory design pattern to manufacture different type od vahicles(car, bike,truct)
 #include <iostream>
 #include <string>   
 using namespace std;
-// Abstract class for Vehicle
+// Abstract/Base class for Vehicle
 class Vehicle {
 public:
-    virtual void drive() = 0; // pure virtual function
+    virtual void drive() = 0;
 };
 // Concrete class for Car   
 class Car : public Vehicle {
@@ -44,24 +44,28 @@ public:
     }
 
 };
+//main  function for implementing factory method
 int main(){
     Vehicle* vehicle1 = VehicleFactory::createVehicle("car");
     if (vehicle1) {
         vehicle1->drive();
-        delete vehicle1; // Don't forget to free the memory
+        delete vehicle1; 
     }
 
     Vehicle* vehicle2 = VehicleFactory::createVehicle("bike");
     if (vehicle2) {
         vehicle2->drive();
-        delete vehicle2; // Don't forget to free the memory
+        delete vehicle2; 
     }
 
     Vehicle* vehicle3 = VehicleFactory::createVehicle("truck");
     if (vehicle3) {
         vehicle3->drive();
-        delete vehicle3; // Don't forget to free the memory
+        delete vehicle3; 
     }
 
     return 0;
 }
+
+
+//gtest unit to check drive behavior
